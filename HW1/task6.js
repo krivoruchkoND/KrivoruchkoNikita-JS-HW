@@ -2,14 +2,25 @@
 // Example:
 // largest(2, 0.1, -5, 100, 3) // 100
 // smallest(2, 0.1, -5, 100, 3) // -5
-const largest = (...args) => {
-    let max = args[0];
-    args.forEach((value) => value > max ? max = value : null);
+function largest() {
+    for (var len = arguments.length, args = new Array(len), key = 0; key < len; key++) {
+        args[key] = arguments[key];
+    }
+    var max = args[0];
+    args.forEach(function (value) {
+        return value > max ? max = value : null;
+    });
     return max;
-}
-const smallest = (...args) => {
-    let min = args[0];
-    args.forEach((value) => value < min ? min = value : null);
+};
+  
+function smallest() {
+    for (var len = arguments.length, args = new Array(len), key = 0; key < len; key++) {
+        args[key] = arguments[key];
+    }
+
+    var min = args[0];
+    args.forEach(function (value) {
+        return value < min ? min = value : null;
+    });
     return min;
-}
-export { largest, smallest }
+};

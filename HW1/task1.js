@@ -8,8 +8,12 @@
 // Example:
 // splitAndMerge("My name is John"," ") should return "M y n a m e i s J o h n"
 // splitAndMerge("Hello World!",",") should return "H,e,l,l,o W,o,r,l,d,!"
-export default splitAndMerge = (str, sp) => {
-    const words = str.split(' ');
-    const wordsByCharacters = words.map((word) => word.split(''));
-    return wordsByCharacters.map((word) => word.join(sp)).join(' ');
-}
+function splitAndMerge(str, sp) {
+    var words = str.split(' ');
+    var wordsByCharacters = words.map(function (word) {
+        return word.split('');
+    });
+    return wordsByCharacters.map(function (word) {
+        return word.join(sp);
+    }).join(' ');
+};

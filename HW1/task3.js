@@ -3,12 +3,13 @@
 // Example:
 // toCamelCase("the-stealth-warrior") // returns "theStealthWarrior"
 // toCamelCase("The_Stealth_Warrior") // returns "TheStealthWarrior"
-export default toCamelCase = (str) => {
-    const words = str.split(/-|_/gm);
-    const head = words[0];
-    const tail = words
-      .filter((word, i) => i > 0)
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join('');
-    return `${head}${tail}`;
-}
+function toCamelCase(str) {
+    var words = str.split(/-|_/gm);
+    var head = words[0];
+    var tail = words.filter(function (word, i) {
+    return i > 0;
+    }).map(function (word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join('');
+    return "".concat(head).concat(tail);
+};
