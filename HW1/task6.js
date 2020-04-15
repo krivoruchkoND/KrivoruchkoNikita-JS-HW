@@ -3,24 +3,23 @@
 // largest(2, 0.1, -5, 100, 3) // 100
 // smallest(2, 0.1, -5, 100, 3) // -5
 function largest() {
-    for (var len = arguments.length, args = new Array(len), key = 0; key < len; key++) {
-        args[key] = arguments[key];
-    }
+    var args = Array.prototype.slice.call(arguments);
     var max = args[0];
     args.forEach(function (value) {
-        return value > max ? max = value : null;
+        if (value > max) {
+          max = value;
+        }
     });
     return max;
 };
   
 function smallest() {
-    for (var len = arguments.length, args = new Array(len), key = 0; key < len; key++) {
-        args[key] = arguments[key];
-    }
-
+    var args = Array.prototype.slice.call(arguments);
     var min = args[0];
     args.forEach(function (value) {
-        return value < min ? min = value : null;
+        if (value < min) {
+          min = value;
+        }
     });
     return min;
 };

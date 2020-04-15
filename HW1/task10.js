@@ -13,7 +13,13 @@
 Function.prototype.myBind = function(prop) {
     var f = this;
     return function() {
-        var args = Number([].slice.call(arguments))
+        var args = Array.prototype.slice.call(arguments);
         return f.call(prop, args)
     }
 };
+
+function addPropToNumbers(numbers) { return this.prop + numbers.reduce((a, b) => a + b, 0); }
+var bound = addPropToNumbers.myBind({ prop: 9 });
+console.log(bound())        // 9
+console.log(bound(1))       // 10
+console.log(bound(1, 2, 3)) // 15

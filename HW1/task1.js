@@ -10,10 +10,7 @@
 // splitAndMerge("Hello World!",",") should return "H,e,l,l,o W,o,r,l,d,!"
 function splitAndMerge(str, sp) {
     var words = str.split(' ');
-    var wordsByCharacters = words.map(function (word) {
-        return word.split('');
-    });
-    return wordsByCharacters.map(function (word) {
-        return word.join(sp);
+    return words.map(function (word) {
+        return word.split('').join(sp);
     }).join(' ');
 };

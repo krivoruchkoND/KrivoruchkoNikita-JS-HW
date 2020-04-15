@@ -3,10 +3,11 @@
 // Example: 
 // sum(1,3,5,7); //should return 16
 function sum() {
-    for (var len = arguments.length, args = new Array(len), key = 0; key < len; key++) {
-        args[key] = arguments[key];
-    }
-    return args.reduce(function (acc, curr) {
-        return acc + curr;
-    }, 0);
+    var args = Array.prototype.slice.call(arguments);
+    return (function iteration(arr) {
+        if (arr.length === 0) {
+            return 0;
+        }
+        return arr.pop() + iteration(arr);
+    })(args);
 };
